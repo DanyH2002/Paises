@@ -1,0 +1,117 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Formulario de Registro</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Tu nombre" required
+          [ngClass]="{'is-invalid' : f['name'].invalid && f['name'].touched}">
+        <div class="invalid-feedback">
+          <small *ngIf="f['name']?.errors?.['required']">El nombre es requerido</small>
+          <small *ngIf="f['name']?.errors?.['minlength']">Se requiere minimo 3 caracteres</small>
+        </div>
+      </div>
+
+      <!-- Apellido -->
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Tu apellido"
+          required [ngClass]="{'is-invalid' : f['last_name'].invalid && f['last_name'].touched}">
+        <div class="invalid-feedback">
+          <small *ngIf="f['last_name']?.errors?.['required']">El apellido es requerido</small>
+          <small *ngIf="f['last_name']?.errors?.['minlength']">Se requiere minimo 3 caracteres</small>
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">Teléfono</label>
+        <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Tu teléfono" required
+          [ngClass]="{'is-invalid' : f['phone'].invalid && f['phone'].touched}">
+        <div class="invalid-feedback">
+          <small *ngIf="f['phone']?.errors?.['required']">El numero de telefono es requerido</small>
+          <small *ngIf="f['phone']?.errors?.['minlength']">Se requiere minimo 10 caracteres</small>
+        </div>
+
+      </div>
+
+      <!-- Sexo -->
+      <div class="mb-3">
+        <label for="sex" class="form-label">Sexo</label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-gender-ambiguous"></i>
+          </span>
+          <select class="form-select" id="sex" formControlName="sex" required
+            [ngClass]="{'is-invalid' : f['sex'].invalid && f['sex'].touched}">
+            <option value="" disabled selected>Selecciona tu sexo</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+          <div class="invalid-feedback">
+            <small *ngIf="f['sex']?.errors?.['required']">El sexo es requerido</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fecha de nacimiento -->
+      <div class="mb-3">
+        <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-calendar-event"></i>
+          </span>
+          <input type="date" class="form-control" id="birthdate" formControlName="birthdate" required
+            [ngClass]="{'is-invalid' : f['birthdate'].invalid && f['birthdate'].touched}">
+          <div class="invalid-feedback">
+            <small *ngIf="f['birthdate']?.errors?.['required']">La fecha de nacimiento es requerida</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- País -->
+      <div class="mb-3">
+        <label for="country" class="form-label">País</label>
+        <input type="text" class="form-control" id="country" formControlName="country" placeholder="Tu país" required
+          [ngClass]="{'is-invalid' : f['country'].invalid && f['country'].touched}">
+        <div class="invalid-feedback">
+          <small *ngIf="f['country']?.errors?.['required']">El pais es requerido</small>
+          <small *ngIf="f['country']?.errors?.['minlength']">Se requiere minimo 3 caracteres</small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Tu email" required
+          [ngClass]="{'is-invalid' : f['email'].invalid && f['email'].touched}">
+        <div class="invalid-feedback">
+          <small *ngIf="f['email']?.errors?.['required']">El email es requerido</small>
+          <small *ngIf="f['email']?.errors?.['minlength']">Se requiere un email valido</small>
+        </div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input [type]="showPassword ? 'text' : 'password'" type="password" class="form-control" id="password" formControlName="password" placeholder="Tu contraseña"
+          required [ngClass]="{'is-invalid' : f['password'].invalid && f['password'].touched}">
+          <span class="toggle-password" (click)="togglePassword()">
+            {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+          </span>
+        <div class="invalid-feedback">
+          <small *ngIf="f['password']?.errors?.['required']">La contraña es requerida</small>
+          <small *ngIf="f['password']?.errors?.['minlength']">Se requiere minimo 8 Ícaracteres</small>
+          <small *ngIf="f['password']?.errors?.['maxlength']">Se requiere maximo 25 caracteres</small>
+        </div>
+      </div>
+
+      <!-- Botón de envío -->
+      <button type="submit" class="btn btn-primary w-100">Registrar</button>
+    </form>
+    <p class="switch-text">
+      ¿Ya tienes cuenta? <span (click)="redirectToLogin()">Inicia sesión</span>
+    </p>
+  </div>
+</div>

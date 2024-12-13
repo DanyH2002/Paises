@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="form" (ngSubmit)="onLogin()">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email" placeholder="Tu email" required />
+
+      <label for="password">Contraseña</label>
+      <div class="password-container">
+        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+          placeholder="Tu contraseña" required />
+        <span class="toggle-password" (click)="togglePassword()">
+          {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+        </span>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">Entrar</button>
+    </form>
+    <p class="switch-text">
+      ¿No tienes cuenta? <span (click)="redirectToRegister()">Regístrate</span>
+    </p>
+  </div>
+</div>

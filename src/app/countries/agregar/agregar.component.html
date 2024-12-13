@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-countries">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="navbar-brand nav-link" href="/menu">Home</a>
+        <a class="nav-link active" aria-current="page" href="/countries">Paises</a>
+        <a class="nav-link" href="/countries/newCountry">Nuevo País</a>
+        <a class="nav-link" href="/login">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 class="form-title">Gestión de País</h2>
+
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input class="form-control" formControlName="name" placeholder="Ingrese el nombre" title="Nombre">
+        <div class="invalid-feedback">
+          <small *ngIf="f['name']?.errors?.['required']">El nombre es requerido</small>
+          <small *ngIf="f['name']?.errors?.['minlength']">Se requiere un mínimo de 2 caracteres</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Región</label>
+        <input class="form-control" formControlName="region" placeholder="Ingrese la región" title="Región">
+        <div class="invalid-feedback">
+          <small *ngIf="f['region']?.errors?.['required']">La región es requerida</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Población</label>
+        <input class="form-control" formControlName="population" type="number" placeholder="Ingrese la población" title="Población">
+        <div class="invalid-feedback">
+          <small *ngIf="f['population']?.errors?.['required']">La población es requerida</small>
+          <small *ngIf="f['population']?.errors?.['min']">Debe ser un número positivo</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Presidente Electo</label>
+        <input class="form-control" formControlName="president_elect" placeholder="Ingrese el presidente electo" title="Presidente Electo">
+        <div class="invalid-feedback">
+          <small *ngIf="f['president_elect']?.errors?.['required']">El presidente electo es requerido</small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="size">Tamaño (km²)</label>
+        <input class="form-control" formControlName="size" id="size" type="number" placeholder="Ingrese el tamaño" title="Tamaño">
+        <div class="invalid-feedback">
+          <small *ngIf="f['size']?.errors?.['required']">El tamaño es requerido</small>
+          <small *ngIf="f['size']?.errors?.['min']">Debe ser un número positivo</small>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

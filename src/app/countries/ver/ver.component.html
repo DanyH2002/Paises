@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-countries">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="navbar-brand nav-link" href="/menu">Home</a>
+        <a class="nav-link active" aria-current="page" href="/countries">Paises</a>
+        <a class="nav-link" href="/countries/newCountry">Nuevo Pais</a>
+        <a class="nav-link" href="/login">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 p-4 rounded">
+    <h1 class="text-center mb-4">Pais: <i>{{ country?.name }}</i></h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Region</th>
+                <th scope="col">Poblacion</th>
+                <th scope="col">Presidente Electo</th>
+                <th scope="col">Tamaño</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ country?.id }}</th>
+                <td>{{ country?.name }}</td>
+                <td>{{ country?.region }}</td>
+                <td>{{ country?.population }}</td>
+                <td>{{ country?.president_elect }}</td>
+                <td>{{ country?.size }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-secondary" type="button" (click)="editar()">Actualizar</button>
+        <button class="btn btn-danger" type="button" (click)="eliminar()">Eliminar</button>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

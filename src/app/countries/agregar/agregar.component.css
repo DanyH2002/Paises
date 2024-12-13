@@ -1,0 +1,169 @@
+/* Estilo general para el navbar */
+.navbar {
+  background-color: #2c2f33;
+  /* Fondo gris oscuro por defecto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil */
+}
+
+/* Estilo para la marca (logo) */
+.navbar-brand {
+  color: #d4d4dc;
+  /* Color plateado claro */
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ffffff;
+  /* Color blanco al pasar el ratón */
+}
+
+/* Estilo para el icono de hamburguesa en dispositivos móviles */
+.navbar-toggler-icon {
+  background-color: #d4d4dc;
+  /* Color del ícono */
+  border-radius: 2px;
+  width: 22px;
+  height: 2px;
+  display: block;
+  margin: 5px auto;
+}
+
+/* Estilos para el menú de navegación */
+.navbar-nav {
+  display: flex;
+  /* Alinea los elementos horizontalmente */
+  justify-content: space-between;
+  /* Asegura que las opciones estén separadas */
+  list-style: none;
+  /* Elimina viñetas */
+  margin-bottom: 0;
+  /* Elimina margen inferior */
+  padding-left: 0;
+  /* Elimina margen izquierdo */
+}
+
+/* Estilo para cada enlace dentro del menú */
+.navbar-nav .nav-link {
+  color: #ffffff;
+  /* Color gris para los enlaces */
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  /* Elimina subrayado */
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+  /* Color blanco en hover */
+  background-color: #3a3d42;
+  /* Fondo gris más oscuro en hover */
+}
+
+/* Sección de países con un fondo café claro */
+.navbar-countries {
+  background-color: #6f4f37;
+  /* Fondo café claro */
+}
+
+/* Estilos para la versión móvil */
+@media (max-width: 992px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    /* Centra los elementos */
+  }
+
+  .navbar-nav .nav-link {
+    margin: 10px 0;
+    width: 100%;
+    /* Hace que los enlaces ocupen el 100% del ancho disponible */
+    text-align: center;
+    /* Centra el texto en los enlaces */
+  }
+
+  .navbar-toggler {
+    border-color: #d4d4dc;
+    /* Borde gris claro para el botón */
+  }
+}
+
+/* Estilos para cuando el menú está expandido */
+.navbar-collapse {
+  flex-grow: 0;
+  align-items: center;
+}
+
+/* Estilo para el router-outlet */
+router-outlet {
+  margin-top: 20px;
+  /* Da un pequeño espacio debajo del navbar */
+}
+
+/* Estilos para el contenedor principal del formulario */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 56px);
+  /* Resta la altura de la barra de navegación */
+  background-color: #f4f6f9;
+  padding: 20px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e0e0e0;
+}
+
+/* Título del formulario */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #495057;
+  font-weight: 600;
+}
+
+/* Campos del formulario */
+.form-control {
+  border-color: #ced4da;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Estilo para los campos inválidos */
+.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Estilo para los botones */
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  width: 500px;
+  display: block;
+  color: #000;
+  background-color: #f4f6f9;
+}
+
+
+
+.mb-3 {
+  display: grid;
+  align-content: space-around;
+  align-items: center;
+  justify-items: stretch;
+  margin: 20px;
+}

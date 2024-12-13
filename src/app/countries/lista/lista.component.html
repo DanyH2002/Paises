@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-countries">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="navbar-brand nav-link" href="/menu">Home</a>
+        <a class="nav-link active" aria-current="page" href="/countries">Paises</a>
+        <a class="nav-link" href="/countries/newCountry">Nuevo Pais</a>
+        <a class="nav-link" href="/login">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="d-flex justify-content-center mt-4">
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Region</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of country">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.region }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-dark" [routerLink]="['/countries/', item.id]">
+              Ver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
