@@ -51,8 +51,8 @@
       </div>
 
       <div class="mb-3">
-        <label class="form-label" for="size">Tamaño (km²)</label>
-        <input class="form-control" formControlName="size" id="size" type="number" placeholder="Ingrese el tamaño" title="Tamaño">
+        <label class="form-label">Tamaño (km²)</label>
+        <input class="form-control" formControlName="size" type="number" placeholder="Ingrese el tamaño" title="Tamaño">
         <div class="invalid-feedback">
           <small *ngIf="f['size']?.errors?.['required']">El tamaño es requerido</small>
           <small *ngIf="f['size']?.errors?.['min']">Debe ser un número positivo</small>

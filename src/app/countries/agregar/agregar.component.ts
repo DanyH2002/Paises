@@ -14,8 +14,6 @@ export class AgregarComponent implements OnInit {
   // Variable para almacenar el id del país que es un número
   id: number = 0;
 
-  country: Country | undefined;
-
   form: FormGroup;
 
   get f() {
@@ -34,7 +32,7 @@ export class AgregarComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3)]],
       region: ['', [Validators.required]],
       population: ['', [Validators.required, Validators.min(1)]],
-      president_elect: ['', [Validators.required], Validators.maxLength(100)],
+      president_elect: ['', [Validators.required, Validators.maxLength(100)]],
       size: ['', [Validators.required, Validators.min(1)]],
     });
   }
@@ -55,32 +53,10 @@ export class AgregarComponent implements OnInit {
         this.httpServices.getCountryById(this.id).subscribe({
           next: (country: Country) => {
             console.log('Country data:', country); // Imprimir los datos de la respuesta
-            this.country = country;
-
-            // Verifica el tipo de 'size' antes de la conversión
-            console.log('Tipo de size antes de la conversión:', typeof this.country.size); // Mostrar tipo
-
-            // Intentar convertir 'size' con el operador '+'
-            const sizeConverted = +this.country.size;
-
-            // Verificar si la conversión fue exitosa
-            if (isNaN(sizeConverted)) {
-              console.error('Error: el valor de size no es un número válido:', this.country.size);
-            } else {
-              console.log('Size después de la conversión:', sizeConverted); // Mostrar valor convertido
-            }
-
             // Asegúrate de que 'size' sea un número antes de hacer patchValue
-            this.form.patchValue({
-              ...this.country,
-              size: sizeConverted,  // Usar el valor convertido
-            });
-
-            // Marcar los controles como tocados para actualizar la vista
-            this.form.get('size')?.markAsTouched();
-
-            // Verificar el valor de 'size' después de patchValue
-            console.log('Size después de patchValue:', this.form.get('size')?.value);  // Mostrar valor asignado
+            this.form.patchValue(
+              country
+            );
           },
           error: () => {
             Swal.fire({
