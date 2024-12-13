@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/node": "^22.9.1",
+    "cors": "^2.8.5",
+    "mysql2": "^3.11.4",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "express": "^4.21.1"
+  }
+}
